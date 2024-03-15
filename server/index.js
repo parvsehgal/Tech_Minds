@@ -2,9 +2,16 @@ const express = require('express')
 const cors = require('cors')
 const app = express();
 require("dotenv").config();
-
+const fileupload = require("express-fileupload");
 app.use(express.json());
 const featureRoutes = require('./routes/featureRoutes.js')
+
+app.use(
+  fileupload({
+    useTempFiles: true,
+    tempFileDir: "/tmp/",
+  })
+);
 
 app.use(
   cors({
@@ -14,7 +21,7 @@ app.use(
   })
 );
 
-app.use('/api/v1',featureRoutes )
+app.use('/api/v1', featureRoutes)
 
 app.post('/test', (req, res) => {
   res.json('sucess')

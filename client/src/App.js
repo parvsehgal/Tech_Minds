@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './App.css';
 import Assistent from './pages/Assistent';
+import Classification from './pages/Classification';
 import Landing from './pages/Landing';
 
 function App() {
@@ -9,7 +10,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Landing></Landing>} />
         <Route path='/assistent' element={<Assistent></Assistent>}></Route>
-        <Route path='/assistent' element={<Assistent></Assistent>}></Route>
+        <Route path='/classify' element={<Classification></Classification>}></Route>
       </Routes>
     </BrowserRouter>
   );

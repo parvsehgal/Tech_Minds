@@ -8,17 +8,15 @@ async function wasteQues(ques) {
   const result = await model.generateContent(prompt);
   const response = await result.response;
   const text = response.text();
-  console.log(text)
   return text
 }
 
 async function dailyTip() {
   const model = genAI.getGenerativeModel({ model: "gemini-pro" });
-  const prompt = "give a daily tip on how to handle waste properly or on general best waste disposal practises in a single line"
+  const prompt = "give me unique (not generic) advice on proper waste management in 2 line "
   const result = await model.generateContent(prompt);
   const response = await result.response;
   const text = response.text();
-  console.log(text)
   return text
 }
 
@@ -33,7 +31,7 @@ exports.assistenHandler = async (req, res) => {
   }
 }
 
-exports.engagement = async (req, res) => {
+exports.userEngagement = async (req, res) => {
   try {
     const tip = await dailyTip();
     res.json({ tip: tip })
